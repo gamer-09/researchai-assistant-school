@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aas_41 – School Project Helper</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="title">aas_41 – School Project Helper</div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div id="providerStatus" class="status">Detecting provider…</div>
+        <label class="status" style="display:flex; align-items:center; gap:4px;">
+          <input id="offlineToggle" type="checkbox" />
+          <span>Offline</span>
+        </label>
+      </div>
+    </header>
+
+    <section class="controls">
+      <form id="projectForm" autocomplete="off">
+        <label class="field full">
+          <span>Topic</span>
+          <input id="topic" name="topic" type="text" placeholder="e.g. The Water Cycle" required />
+        </label>
+
+        <label class="field">
+          <span>Mode</span>
+          <select id="mode" name="mode">
+            <option value="project" selected>Project</option>
+            <option value="assignment">Assignment</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Grade level</span>
+          <select id="gradeLevel" name="gradeLevel">
+            <option value="middle_school">Middle school</option>
+            <option value="high_school" selected>High school</option>
+            <option value="college">College</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Type</span>
+          <select id="projectType" name="projectType">
+            <option value="report" selected>Report</option>
+            <option value="presentation">Presentation</option>
+            <option value="poster">Poster</option>
+            <option value="science_fair">Science Fair</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Provider</span>
+          <select id="provider" name="provider">
+            <option value="">Auto</option>
+            <option value="openai">OpenAI</option>
+            <option value="openrouter">OpenRouter</option>
+            <option value="ollama">Ollama (local)</option>
+          </select>
+        </label>
+
+        <button id="runBtn" class="btn" type="submit">Build Project</button>
+      </form>
+    </section>
+
+    <section class="terminal-wrap">
+      <div class="terminal" id="terminal" role="log" aria-live="polite">
+        <div class="output-head">
+          <div class="output-title">Output</div>
+          <div class="output-actions">
+            <button id="copyProjectBtn" class="code-action" type="button" disabled>Copy Project</button>
+            <button id="downloadProjectBtn" class="code-action" type="button" disabled>Download Project</button>
+            <button id="clearBtn" class="code-action" type="button">Clear</button>
+          </div>
+        </div>
+        <div id="output"></div>
+        <div id="gallery" class="gallery"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Tip: images include license + credit. Use the “Open” link to view the source page for attribution.</span>
+    </footer>
+  </div>
+
+  <script src="/main.js"></script>
+</body>
+</html>
